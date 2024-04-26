@@ -1,5 +1,12 @@
+<script setup>
+  useHead({
+    title: 'Ecommerce',
+  })
+  import 'primevue/resources/themes/aura-light-green/theme.css'
+</script>
+
 <template>
-  <div>
-    <NuxtWelcome />
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>

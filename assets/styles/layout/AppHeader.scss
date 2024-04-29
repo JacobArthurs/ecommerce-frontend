@@ -1,0 +1,30 @@
+.app-header {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--surface-0);
+
+    padding: 0 1rem;
+    @media (min-width: 768px) {
+        padding: 0 3.5rem;
+    }
+}
+
+.p-menubar-root-list {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.v-enter-active,
+.v-leave-active {
+    width: 12rem;
+    transition: width 0.3s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    width: 0;
+}

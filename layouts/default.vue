@@ -4,7 +4,11 @@
 </script>
 
 <template>
-    <AppHeader />
-    <slot />
-    <AppFooter />
+    <div class="flex flex-column min-h-screen">
+        <AppHeader />
+        <div class="page-container">
+            <slot  />
+        </div>
+        <AppFooter />
+    </div>
 </template>

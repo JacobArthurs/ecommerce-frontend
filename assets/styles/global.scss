@@ -2,13 +2,8 @@
 
 body {
     margin: 0;
-    padding: 6rem 1rem 0;
     font-family: 'Lato', sans-serif;
     color: var(--text-color);
-
-    @media (min-width: 768px) {
-        padding: 6rem 3.5rem 0;
-    }
 }
 
 .p-component,
@@ -19,4 +14,12 @@ body {
 
 .not-visible {
     visibility: hidden !important;
+}
+
+.page-container {
+    padding: 6rem 1rem 0;
+
+    @media (min-width: 768px) {
+        padding: 6rem 3.5rem 0;
+    }
 }

@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+body {
+    margin: 0;
+    padding: 6rem 1rem 0;
+    font-family: 'Lato', sans-serif;
+    color: var(--text-color);
+
+    @media (min-width: 768px) {
+        padding: 6rem 3.5rem 0;
+    }
+}
+
+.p-component,
+.p-button,
+.p-menu {
+    font-family: 'Lato', sans-serif;
+}
+
+.not-visible {
+    visibility: hidden !important;
+}

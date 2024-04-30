@@ -39,10 +39,10 @@
     <!-- Desktop Header -->
     <Menubar :model="items" class="app-header shadow-1 h-6rem border-none xl:flex hidden">
         <template #start>
-            <div class="text-3xl font-bold flex align-items-center">
+            <router-link to="/" class="text-3xl font-bold flex align-items-center">
                 <Image src="/greengrove.png" alt="Green Grove Market Logo" width="40" height="40"/>
                 &nbsp;<div class="text-primary">Green</div>&nbsp;Grove Market
-            </div>
+            </router-link>
         </template>
         <template #item="{ item, props, hasSubmenu }">
             <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
@@ -79,11 +79,11 @@
             <Button icon="pi pi-bars sm:text-xl text-color" text rounded aria-label="Menu" @click="openMobileMenu" />
             <Button icon="pi pi-search sm:text-xl text-color" text rounded aria-label="Search Products" @click="openMobileSearch" />
         </div>
-        <div class=" sm:text-3xl font-bold flex align-items-center">
+        <router-link to="/" class="sm:text-3xl font-bold flex align-items-center" >
             <Image src="/greengrove.png" alt="Green Grove Market Logo" width="40" height="40" class="hidden sm:block" />
             <Image src="/greengrove.png" alt="Green Grove Market Logo" width="30" height="30" class="sm:hidden" />
             &nbsp;<div class="text-primary">Green</div>&nbsp;Grove Market
-        </div>
+        </router-link>
         <div class="flex align-items-center sm:gap-2">
             <router-link to="/" class="hidden sm:block">
                 <Button icon="pi pi-user text-xl text-color" text rounded aria-label="Profile" />

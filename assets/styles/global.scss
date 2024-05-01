@@ -16,11 +16,10 @@ body {
     visibility: hidden !important;
 }
 
-.page-container {
-    padding: 6rem 1rem 0;
-
+.page-padding {
+    padding: 0 1rem;
     @media (min-width: 768px) {
-        padding: 6rem 3.5rem 0;
+        padding: 0 3.5rem;
     }
 }
 

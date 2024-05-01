@@ -10,7 +10,7 @@
 </script>
 
 <template>
-    <div class="app-footer flex flex-column bg-primary py-4 mt-auto h-fit justify-content-center">
+    <div class="app-footer page-padding flex flex-column bg-primary py-4 mt-auto h-fit justify-content-center">
         <div class="flex flex-column lg:flex-row justify-content-between align-items-center gap-4">
             <div class="flex gap-4">
                 <NuxtLink to="https://facebook.com" target="_blank" rel="noopener">

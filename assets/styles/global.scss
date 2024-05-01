@@ -28,3 +28,15 @@ a {
     text-decoration: none;
     color: var(--text-color);
 }
+
+.w-fit {
+    width: fit-content !important;
+}
+
+.h-fit {
+    height: fit-content !important;
+}
+
+.text-primary-color {
+    color: var(--primary-color-text) !important;
+}

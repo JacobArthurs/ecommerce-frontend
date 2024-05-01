@@ -18,13 +18,25 @@
     justify-content: space-around;
 }
 
-.v-enter-active,
-.v-leave-active {
+.search-enter-active,
+.search-leave-active {
     width: 12rem;
     transition: width 0.3s ease;
 }
 
-.v-enter-from,
-.v-leave-to {
+.search-enter-from,
+.search-leave-to {
     width: 0;
+}
+
+.scroll-enter-active,
+.scroll-leave-active {
+    transform: translate3d(0, 0, 0);
+    transition: 0.1s all ease-out;
+}
+
+.scroll-enter-from,
+.scroll-leave-to {
+    transform: translate3d(0, -100%, 0);
+    box-shadow: none;
 }

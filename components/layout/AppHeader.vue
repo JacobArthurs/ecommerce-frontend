@@ -7,7 +7,9 @@
     import IconField from 'primevue/iconfield';
     import InputText from 'primevue/inputtext';
     import InputIcon from 'primevue/inputicon';
+    import { useTheme } from '~/composables/useTheme';
 
+    const { toggleTheme, isDarkMode } = useTheme();
     const items = ref([
         { label: 'Shop', items: [{ label: 'Shop All', route: '/' }] },
         { label: 'Explore', route: '/' },
@@ -58,7 +60,6 @@
     const openCart = () => console.log('open cart');
     const openMobileMenu = () => console.log('open mobile menu');
     const openMobileSearch = () => console.log('open mobile search');
-    const enableDarkMode = () => console.log('enable dark mode');
 </script>
 
 <template>
@@ -94,7 +95,7 @@
                     <router-link to="/">
                         <Button icon="pi pi-user text-xl text-color" text rounded aria-label="Profile" />
                     </router-link>
-                    <Button icon="pi pi-moon text-xl text-color" text rounded aria-label="Dark Mode" @click="enableDarkMode" />
+                    <Button :icon="isDarkMode ? 'pi pi-moon text-xl text-color' : 'pi pi-sun text-xl text-color'" text rounded aria-label="Dark Mode" @click="toggleTheme" />
                     <Button icon="pi pi-shopping-cart text-xl text-color" text rounded aria-label="Shopping Cart" @click="openCart"/>
                 </div>
             </template>

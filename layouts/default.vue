@@ -5,7 +5,7 @@
 
 <template>
     <div class="flex flex-column min-h-screen">
-        <link id="theme-css" rel="stylesheet" href="/themes/aura-light-green/theme.css">
+        <link id="theme-css" rel="stylesheet" href="/themes/aura-light-green.css">
         <AppHeader />
         <div class="page-padding">
             <slot  />

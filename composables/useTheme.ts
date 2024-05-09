@@ -7,7 +7,7 @@ export const useTheme = () => {
     const applyTheme = (): void => {
         const themeLink: HTMLLinkElement | null = document.getElementById('theme-css') as HTMLLinkElement;
         if (themeLink) {
-            themeLink.href = `/themes/${theme.value}/theme.css`;
+            themeLink.href = `/themes/${theme.value}.css`;
             isDarkMode.value = theme.value.includes('dark');
         }
     };

@@ -15,6 +15,7 @@
         { label: 'Explore', route: '/' },
         { label: 'About Us', route: '/' }
     ]);
+    const profileMenu = ref();
     let searchInput = ref();
     let searchText = ref('');
     let searchExpanded = ref(false);
@@ -56,6 +57,10 @@
         window.removeEventListener('scroll', handleScroll);
     });
 
+    const openProfile = (event) => {
+        profileMenu.value.toggle(event);
+    };
+
     // Placeholder functions for actions
     const openCart = () => console.log('open cart');
     const openMobileMenu = () => console.log('open mobile menu');
@@ -85,16 +90,43 @@
             </template>
             <template #end>
                 <div class="flex align-items-center gap-2">
-                        <Button icon="pi pi-search text-xl text-color" text rounded aria-label="Search Products" @click="expandSearch" v-show="!searchExpanded"/>
-                        <Transition name="search">
-                            <IconField iconPosition="left" v-if="searchExpanded" class="overflow-hidden">
-                                <InputIcon class="pi pi-search" />
-                                <InputText v-model="searchText" placeholder="Search" ref="searchInput" @focusout="searchExpanded = false" @keyup.enter="search"/>
-                            </IconField>
-                        </Transition>
-                    <router-link to="/">
-                        <Button icon="pi pi-user text-xl text-color" text rounded aria-label="Profile" />
-                    </router-link>
+                    <Button icon="pi pi-search text-xl text-color" text rounded aria-label="Search Products" @click="expandSearch" v-show="!searchExpanded"/>
+                    <Transition name="search">
+                        <IconField iconPosition="left" v-if="searchExpanded" class="overflow-hidden">
+                            <InputIcon class="pi pi-search" />
+                            <InputText v-model="searchText" placeholder="Search" ref="searchInput" @focusout="searchExpanded = false" @keyup.enter="search"/>
+                        </IconField>
+                    </Transition>
+                    <Button icon="pi pi-user text-xl text-color" text rounded aria-label="Profile" @click="openProfile"/>
+                    <Menu ref="profileMenu" :popup="true">
+                        <!-- Signed In Profile Menu -->
+                        <template #start v-if="false">
+                            <div class="flex flex-column align-items-start justify-content-center my-3">
+                                <span class="font-bold ml-3">Hello, Jacob</span>
+                                <Divider />
+                                <router-link to="/" class="w-full mb-2">
+                                    <Button v-ripple label="View Orders" text icon="pi pi-receipt text-color" class="w-full text-color text-left" />
+                                </router-link>
+                                <router-link to="/" class="w-full my-2">
+                                    <Button v-ripple label="View Reviews" text icon="pi pi-star text-color" class="w-full text-color text-left" />
+                                </router-link>
+                                <router-link to="/" class="w-full mt-2">
+                                    <Button v-ripple label="Sign Out" text icon="pi pi-sign-out text-color" class="w-full text-color text-left" />
+                                </router-link>
+                            </div>
+                        </template>
+                        <!-- Not Signed In Profile Menu -->
+                        <template #start v-if="true">
+                            <div class="flex flex-column align-items-center justify-content-center my-3">
+                                <Button v-ripple label="Sign In" icon="pi pi-sign-in" rounded/>
+                                <Divider />
+                                <span class="mb-2 text-sm">New customer?</span>
+                                <router-link to="/">
+                                    <Button v-ripple text label="Start here" class="text-sm"/>
+                                </router-link>
+                            </div>
+                        </template>
+                    </Menu>
                     <Button :icon="isDarkMode ? 'pi pi-moon text-xl text-color' : 'pi pi-sun text-xl text-color'" text rounded aria-label="Dark Mode" @click="toggleTheme" />
                     <Button icon="pi pi-shopping-cart text-xl text-color" text rounded aria-label="Shopping Cart" @click="openCart"/>
                 </div>

@@ -1,6 +1,6 @@
 <script setup>
   useHead({
-    title: 'Ecommerce',
+    title: 'Green Grove Market',
   })
 </script>
 

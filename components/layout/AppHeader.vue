@@ -118,7 +118,9 @@
                         <!-- Not Signed In Profile Menu -->
                         <template #start v-if="true">
                             <div class="flex flex-column align-items-center justify-content-center my-3">
-                                <Button v-ripple label="Sign In" icon="pi pi-sign-in" rounded/>
+                                <router-link to="/">
+                                    <Button v-ripple label="Sign In" icon="pi pi-sign-in" rounded/>
+                                </router-link>
                                 <Divider />
                                 <span class="mb-2 text-sm">New customer?</span>
                                 <router-link to="/">

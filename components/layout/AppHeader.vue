@@ -16,6 +16,10 @@
         { label: 'About Us', route: '/' }
     ]);
     const profileMenu = ref();
+    const { onHover: onProfileHover, onLeave: onProfileLeave, cancelTimer: cancelProfileTimer } = useHoverDelay(
+        (event?: MouseEvent) => profileMenu.value.show(event),
+        () => profileMenu.value.hide()
+    );
     let searchInput = ref();
     let searchText = ref('');
     let searchExpanded = ref(false);
@@ -57,10 +61,6 @@
         window.removeEventListener('scroll', handleScroll);
     });
 
-    const openProfile = (event) => {
-        profileMenu.value.toggle(event);
-    };
-
     // Placeholder functions for actions
     const openCart = () => console.log('open cart');
     const openMobileMenu = () => console.log('open mobile menu');
@@ -97,8 +97,8 @@
                             <InputText v-model="searchText" placeholder="Search" ref="searchInput" @focusout="searchExpanded = false" @keyup.enter="search"/>
                         </IconField>
                     </Transition>
-                    <Button icon="pi pi-user text-xl text-color" text rounded aria-label="Profile" @click="openProfile"/>
-                    <Menu ref="profileMenu" :popup="true">
+                    <Button icon="pi pi-user text-xl text-color" text rounded aria-label="Profile" @mouseover="onProfileHover" @mouseleave="onProfileLeave"/>
+                    <Menu ref="profileMenu" :popup="true" @mouseover="cancelProfileTimer" @mouseleave="onProfileLeave">
                         <!-- Signed In Profile Menu -->
                         <template #start v-if="false">
                             <div class="flex flex-column align-items-start justify-content-center my-3">

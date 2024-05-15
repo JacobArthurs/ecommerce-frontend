@@ -12,6 +12,33 @@
     }
 }
 
+.underline-menu-item {
+    position: relative;
+}
+
+.underline-menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--primary-500);
+    transition: width 0.3s ease-in-out;
+}
+
+.underline-menu-item.active::after {
+    width: 100%;
+}
+
+.rotate-menu-item {
+    transition: transform 0.3s ease;
+}
+
+.rotate-menu-item.active {
+    transform: rotate(180deg);
+}
+
 .p-menubar-root-list {
     display: flex;
     flex-grow: 1;

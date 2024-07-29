@@ -84,8 +84,8 @@
                 &nbsp;<div class="text-primary">Green</div>&nbsp;Grove Market
             </router-link>
             <div class="flex align-items-center flex-grow-1 justify-content-around">
-                <a @mouseover="onShopHover" @mouseleave="onShopLeave">
-                    <span class="text-xl font-bold cursor-pointer underline-menu-item" :class="{ 'active': isShopMenuDisplayed }">Shop</span>
+                <div @mouseover="onShopHover" @mouseleave="onShopLeave">
+                    <span class="text-xl font-medium cursor-pointer underline-menu-item" :class="{ 'active': isShopMenuDisplayed }">Shop</span>
                     <span class="pi pi-angle-up ml-2 rotate-menu-item" :class="{ 'active': isShopMenuDisplayed }"/>
                     <Menu ref="shopMenu" :popup="true" class="mt-2 w-25rem" @mouseover="cancelShopTimer" @mouseleave="onShopLeave">
                         <template #start>
@@ -96,9 +96,13 @@
                             </div>
                         </template>
                     </Menu>
-                </a>
-                <a class="text-xl font-bold cursor-pointer">Explore</a>
-                <a class="text-xl font-bold cursor-pointer">About Us</a>
+                </div>
+                <RouterLink to="/">
+                    <Button text label="Explore" class="text-xl text-color" />
+                </RouterLink>
+                <RouterLink to="/">
+                    <Button text label="About Us" class="text-xl text-color" />
+                </RouterLink>
             </div>
             <div class="flex align-items-center gap-2">
                 <Button icon="pi pi-search text-xl text-color" text rounded aria-label="Search Products" @click="expandSearch" v-show="!searchExpanded"/>
